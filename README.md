@@ -2,7 +2,7 @@
 
 This is the Pytorch implementation of our paper - <br>
 
-**# Attention-based Class-Conditioned Alignment for Multi-Source Domain Adaptive Object Detection**<br>
+**Attention-based Class-Conditioned Alignment for Multi-Source Domain Adaptive Object Detection**<br>
 Atif Belal, Akhil Meethal, Francisco Perdigon Romero, Marco Pedersoli, Eric Granger
 
 [[arXiv]()] 
