@@ -1,0 +1,49 @@
+_BASE_: "./Base-RCNN-C4.yaml"
+MODEL:
+  META_ARCHITECTURE: "ACIAMSDAGeneralizedRCNN"
+  #WEIGHTS: "crosstime_final.pth"
+  BACKBONE:
+    NAME: "build_vgg_backbone"
+  MASK_ON: False
+  RESNETS:
+    DEPTH: 101
+  PROPOSAL_GENERATOR:
+    NAME: "PseudoLabRPN"
+  RPN:
+    IN_FEATURES: ["vgg4"]
+  ROI_HEADS:
+    NAME: "StandardROIHeadsPseudoLab"
+    LOSS: "FocalLoss"
+    NUM_CLASSES: 1
+    IN_FEATURES: ["vgg4"]
+  ROI_BOX_HEAD:
+    NAME: "FastRCNNConvFCHead"
+    NUM_FC: 2
+    POOLER_RESOLUTION: 7
+SOLVER:
+  LR_SCHEDULER_NAME: "WarmupTwoStageMultiStepLR"
+  STEPS: (60000, 80000, 90000, 360000)
+  FACTOR_LIST: (1, 1, 1, 1, 1)
+  MAX_ITER: 40000
+  IMG_PER_BATCH_LABEL: 8
+  IMG_PER_BATCH_UNLABEL: 8
+  BASE_LR: 0.02
+DATALOADER:
+  SUP_PERCENT: 100.0
+DATASETS:
+DATASETS:
+  CROSS_DATASET: True
+  TRAIN_LABEL: (["cityscapes_car",], ["Kitty",]) 
+  TRAIN_UNLABEL: ("Daytime_car_train",)
+  TEST: ("Daytime_car_val",)
+SEMISUPNET:
+  BBOX_THRESHOLD: 0.7
+  TEACHER_UPDATE_ITER: 1
+  BURN_UP_STEP: 20000
+  EMA_KEEP_RATE: 0.9996
+  UNSUP_LOSS_WEIGHT: 1.0
+  SUP_LOSS_WEIGHT: 1.0
+  DIS_TYPE: "vgg4"
+  INSTANCE_WEIGHT: 0.3
+TEST:
+  EVAL_PERIOD: 5000
