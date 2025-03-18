@@ -5,7 +5,7 @@ This is the Pytorch implementation of our paper - <br>
 **Attention-based Class-Conditioned Alignment for Multi-Source Domain Adaptation of Object Detectors**<br>
 Atif Belal, Akhil Meethal, Francisco Perdigon Romero, Marco Pedersoli, Eric Granger
 
-[[WACV2025](https://openaccess.thecvf.com/content/WACV2025/papers/Belal_Attention-Based_Class-Conditioned_Alignment_for_Multi-Source_Domain_Adaptation_of_Object_Detectors_WACV_2025_paper.pdf)[[arXiv](https://arxiv.org/pdf/2403.09918v2)] 
+[[WACV2025](https://openaccess.thecvf.com/content/WACV2025/papers/Belal_Attention-Based_Class-Conditioned_Alignment_for_Multi-Source_Domain_Adaptation_of_Object_Detectors_WACV_2025_paper.pdf)][[arXiv](https://arxiv.org/pdf/2403.09918v2)] 
 
 
 <p align="center">
